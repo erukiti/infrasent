@@ -11,12 +11,21 @@ class DummyPage
   end
 end
 
+class DummyContent
+  attr_reader :title
+  attr_reader :pages
+  def initialize(title, pages)
+    @title = title
+    @pages = pages
+  end
+end
+
 describe OutImpress do
   before do
-    @out_impress = OutImpress.new("タイトル", [
+    @out_impress = OutImpress.new(DummyContent.new("タイトル", [
       DummyPage.new("<h1>title</h1><p>タイトル</p>", 0, 0), 
       DummyPage.new("<h2>hoge</h2><p>ほげ</p>", 1024, 0)
-    ], <<EOF)
+    ]), <<EOF)
 <tite><%= @title %></title>
 <% @pages.each do |page| %><div class="step" data-x="<%= page.x %>" data-y="<%= page.y %>">
 <%= page.html %>

@@ -3,9 +3,9 @@
 require 'erb'
 
 class OutImpress
-  def initialize(title, pages, erb_template)
-    @title = title.strip
-    @pages = pages
+  def initialize(content, erb_template)
+    @title = content.title.strip
+    @pages = content.pages
     @erb_template = erb_template
   end
 
