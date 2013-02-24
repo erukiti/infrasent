@@ -1,5 +1,7 @@
 # coding: utf-8
 
+require './out_impress.rb'
+
 class DummyPage
   attr_reader :html
   attr_reader :x
